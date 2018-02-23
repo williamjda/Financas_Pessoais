@@ -1,0 +1,21 @@
+{
+    "name": "William/financasPhp",
+    "authors": [
+        {
+            "name": "William Aquino",
+            "email": "william.aquino@atitude.com.br"
+        }
+    ],
+    "require":{
+        "robmorgan/phinx": "0.7.1",
+        "xtreamwayz/pimple-container-interop": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "SONFin\\": "src"
+        }
+    },
+    "require-dev": {
+        "fzaninotto/faker": "1.6.0"
+    }
+}
