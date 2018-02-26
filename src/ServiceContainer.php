@@ -7,7 +7,7 @@ use Xtreamwayz\Pimple\Container;
 
 class ServiceContainer implements ServiceContainerInterface
 {
-    private $container;
+    private $container;//vai ser ainstancia do conteiner do pimple.
 
     public function __construct()
     {
