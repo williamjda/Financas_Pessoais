@@ -1,13 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-/**
- * Created by PhpStorm.
- * User: William.Aquino
- * Date: 26/02/2018
- * Time: 13:32
- */
->>>>>>> desenvolvimento
 
 namespace SONFin;
 
@@ -16,7 +7,7 @@ class Application
 {
     private $serviceContainer;
 
-<<<<<<< HEAD
+
     public function __construct(ServiceContainerInterface $serviceContainer)
     {
         $this->serviceContainer = $serviceContainer;
@@ -33,7 +24,4 @@ class Application
             $this->serviceContainer->add($name, $service);
         }
     }
-=======
-    public function service($name);
->>>>>>> desenvolvimento
 }
