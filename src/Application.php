@@ -10,10 +10,6 @@ class Application
 {
     private $serviceContainer;
 
-<<<<<<< HEAD
-
-=======
->>>>>>> desenvolvimento
     public function __construct(ServiceContainerInterface $serviceContainer)
     {
         $this->serviceContainer = $serviceContainer;
@@ -24,29 +20,24 @@ class Application
         return $this->serviceContainer->get($name);
     }
 
-<<<<<<< HEAD
-    public function addService(string $name, $service){
-=======
+
     public function addService(string $name, $service): void
     {
->>>>>>> desenvolvimento
+
         if(is_callable($service)){
             $this->serviceContainer->addLazy($name, $service);
         }else{
             $this->serviceContainer->add($name, $service);
         }
     }
-<<<<<<< HEAD
-=======
+
 
     public function plugin(PluginInterface $plugin): void
     {
         $plugin->register($this->serviceContainer);
     }
 
-<<<<<<< HEAD
->>>>>>> desenvolvimento
-=======
+
     public function get($path, $action, $name = null): Application{
         $routing = $this->service('routing');
         $routing->get($name, $path, $action);
@@ -59,5 +50,5 @@ class Application
         $callable = $route->handler;
         $callable();
     }
->>>>>>> desenvolvimento
+
 }
