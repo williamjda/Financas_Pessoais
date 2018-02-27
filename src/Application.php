@@ -19,7 +19,8 @@ class Application
         $this->serviceContainer = $serviceContainer;
     }
 
-    public function service($name){
+    public function service($name)
+    {
         return $this->serviceContainer->get($name);
     }
 
@@ -43,5 +44,20 @@ class Application
         $plugin->register($this->serviceContainer);
     }
 
+<<<<<<< HEAD
+>>>>>>> desenvolvimento
+=======
+    public function get($path, $action, $name = null): Application{
+        $routing = $this->service('routing');
+        $routing->get($name, $path, $action);
+        return $this;
+    }
+
+    public function start(){
+        $route = $this->service('route');
+
+        $callable = $route->handler;
+        $callable();
+    }
 >>>>>>> desenvolvimento
 }
