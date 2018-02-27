@@ -4,7 +4,11 @@
 declare(strict_types=1);
 namespace SONFin;
 
+use Psr\Http\Message\RequestInterface;
+use Psr\Http\Message\ServerRequestInterface;
 use SONFin\Plugins\PluginInterface;
+use Zend\Diactoros\Response\SapiEmitter;
+use Zend\Diactoros\ServerRequestFactory;
 
 class Application
 {
@@ -46,9 +50,25 @@ class Application
 
     public function start(){
         $route = $this->service('route');
+        /** @var ServerRequestInterface $request*/
+        $request = $this->service(RequestInterface::class);
+        if (!$route){
+            echo "Página não econtrada";
+            exit;
+        }
+
+        foreach ($route->attributes as $key => $value){
+            $request = $request->withAttribute($key,$value);
+        }
 
         $callable = $route->handler;
-        $callable();
+        $response = $callable($request);
+        $this->emitResponse($response);
+    }
+
+    protected function emitResponse(RequestInterface $response){
+        $emitter = new SapiEmitter();
+        $emitter->emit($response);
     }
 
 }
